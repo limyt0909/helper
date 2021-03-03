@@ -1,0 +1,37 @@
+.text2 {
+  text-align: center;
+}
+
+.title {
+  font-size: 23px;
+}
+
+/* 배경색*/
+.back {
+  background: #f0f4f7;
+  padding: 3rem;
+  color: #3b3e4f;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 23px;
+  height: auto;
+  width: auto;
+  text-align: center;
+}
+
+.text {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1rem;
+}
+
+.quick {
+  text-align: right;
+}
+
+.circle {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 23px;
+}
+.circle2 {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 12px;
+}

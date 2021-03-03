@@ -1,0 +1,109 @@
+/* 자동으로 고유해질 것이므로 흔히 사용되는 단어를 클래스 이름대로 사용가능 */
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/* top,bottom 배경색 */
+.up {
+  padding: 2rem;
+  margin: 1rem;
+  color: rgb(1, 18, 20);
+  font-size: 3rem;
+  text-align: left;
+}
+
+/* 타이틀*/
+.title {
+  background: rgb(2, 0, 3);
+  padding: 1rem;
+  color: rgb(252, 253, 253);
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* 회사소개 */
+.aboutaone {
+  font-size: 16px;
+}
+
+/*오시는길전용 */
+.map {
+  color: #48afdb;
+  font-size: 2rem;
+}
+.maptext {
+  color: #757575;
+}
+
+/* member */
+.member {
+  color: #757575;
+}
+
+/* card */
+
+.card {
+  font-size: 0.5rem;
+  color: #757575;
+}
+
+.cardbody {
+  font-size: 1rem;
+  color: #757575;
+}
+
+.font {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 13pt;
+}
+
+/* 가운데 컨테이너 정렬 */
+
+/*top, right,bottom,left */
+.margin {
+  margin: 25px 50px 75px 100px;
+}
+.margin2 {
+  margin: 25px 50px 75px 300px;
+}
+
+/* 사진크기 강제적용 */
+.img2 {
+  widows: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*본문 글씨 이용*/
+.global {
+  color: #48afdb;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 15pt;
+}
+
+.global2 {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 13pt;
+}
+
+.education {
+  color: #48afdb;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 15pt;
+}
+
+.education2 {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 13pt;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+.history {
+  color: #7e7e7e;
+  font-size: 14px;
+  font-family: 'Nanum Gothic', sans-serif;
+}

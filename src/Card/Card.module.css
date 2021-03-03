@@ -1,0 +1,12 @@
+/* 자동으로 고유해질 것이므로 흔히 사용되는 단어를 클래스 이름대로 사용가능 */
+
+.card {
+  background: rgb(216, 221, 224);
+  padding: 3rem;
+}
+
+.cardmain {
+  color: rgb(20, 130, 189);
+  font-size: 2rem;
+  text-align: center;
+}
