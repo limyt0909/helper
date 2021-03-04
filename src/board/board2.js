@@ -34,6 +34,10 @@ const Board = () => {
     const tbody = document.querySelector('tbody');
     data.forEach((key, value) => {
       const tr = document.createElement('tr');
+      tr.addEventListener('click', () => {
+        console.log(key.idx);
+        window.location.href = `http://localhost:3000/more?idx=${key.idx}`;
+      });
       const idx = document.createElement('td');
       const DateTime = document.createElement('td');
       const Title = document.createElement('td');
@@ -45,7 +49,7 @@ const Board = () => {
       tr.appendChild(idx);
       tr.appendChild(Title);
       tr.appendChild(Author);
-      g;
+
       tr.appendChild(DateTime);
       tbody.appendChild(tr);
     });

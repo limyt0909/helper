@@ -75,7 +75,9 @@ app.get('/books', (req, res) => {
   });
 });
 
-//JSON형태로 books에 쏘기 Board 게시판에서 사용
+
+
+//JSON형태로 More 보기
 app.get('/more', (req, res) => {
   const sql =
     'SELECT title, author, comments FROM Books where idx = ' + req.query.idx;
@@ -91,6 +93,8 @@ app.get('/more', (req, res) => {
     res.send(data);
   });
 });
+
+
 
 //EDIT 작업중
 app.get('/edit', (req, res) => {
@@ -109,9 +113,26 @@ app.get('/edit', (req, res) => {
     res.send(data);
   });
 });
+app.post('/edit' ,(req,res)=>{
+  const data = req.body;
+  const idx = data.idx;
+  const title = data.Title;
+  const author = data.Author;
+  const comments = data.Comments
+  const query = `UPDATE books SET Title="${title}", Author="${author}", Comments="${comments}" WHERE (idx="${idx}");`
+  console.log(query)
+  db.run(query, (err, rows) => {
+    if (err) {
+      res.send(err);
+
+      return console.error(err.message);
+    }
+    // res.render("books", { model: rows });
+    res.send('OK');
+  });
+})
 
 /*
-
 // GET /create
 app.get('/create', (req, res) => {
   const book = {
@@ -130,6 +151,4 @@ app.post('/create', (req, res) => {
     res.redirect('/books');
   });
 });
-
-
 */

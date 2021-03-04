@@ -20,6 +20,7 @@ const Edit = () => {
   const [comments, setComments] = useState('');
   const currLocation = window.location.href.split('/');
   const slug = currLocation[currLocation.length - 1];
+  const [idx , setidx] = useState('');
   const handleOnChange = (event) => {
     const { className, value } = event.target;
     if (className === 'Title') {
@@ -39,7 +40,22 @@ const Edit = () => {
   };
   useEffect(() => {
     getBooks();
-  });
+  },[]);
+  const handleUpdate = () =>{ 
+    let index = window.location.href.split('=')
+    if(index.length < 2) return;
+    index = index[1]    
+    let updateData = {
+      "idx" : index,
+      "Title" : title,
+      "Author" : author,
+      "Comments" : comments
+    }
+    axios.post(`http://localhost:3001/edit`,updateData).then(res=>{
+      console.log(res.data)
+    })
+  }
+
 
   return (
     <>
@@ -48,7 +64,7 @@ const Edit = () => {
 
       <div class="container">
         <h1>Edit</h1>
-        <form action="/edit/<%= model.Book_ID %>" method="post">
+        <form action={handleUpdate} method="post">
           <div class="form-horizontal">
             <div class="form-group row">
               <label class="col-form-label col-sm-2" for="Title">
