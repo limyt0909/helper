@@ -38,27 +38,8 @@ const More = () => {
     axios.get(`http://localhost:3001/more?idx=${idx}`).then((res) => {
       const books = res.data.books;
       displayBook(books);
-      //  const books = {"books":[{"idx":2,"Book_ID":2,"Title":"두번째 게시글 입니다 title이 어디까지갈까ㅇ요요요요요요요용용","Author":"용택2","DateTime":"2021-02-19","Comments":"ㅇ용"},{"idx":1,"Book_ID":1,"Title":"첫번째 게시글인데 ","Author":"용택","DateTime":"2021-02-19","Comments":"testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"}]}
-      // setData(books);
     });
   }, []);
-
-  /*
-  const update = () => {
-    const Title = document.getElementById('Title');
-    // let TitleModify = Title.value;
-    let TitleModify = 'Hi';
-    let AuthorModify = '';
-    let CommentsModify = '';
-    const updateData = {
-      idx: booksNo,
-      Title: TitleModify,
-      Author: AuthorModify,
-      Comments: CommentsModify,
-    };
-    axios.post('http://localhost:3001/edit', (data = updateData));
-  };
-*/
 
   return (
     <>
@@ -120,6 +101,9 @@ const More = () => {
               <div class="col-sm-10">
                 <a href="/board2" class="btn btn-outline-dark cancel">
                   Back
+                </a>
+                <a href={`/edit2?idx=${booksNo}`} class="btn btn-outline-dark cancel">
+                  Edit
                 </a>
               </div>
             </div>
