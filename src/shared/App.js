@@ -57,6 +57,7 @@ import {
   board2,
   Create,
   Edit,
+  Edit2,
   More,
 } from '../pages';
 
@@ -107,6 +108,7 @@ class App extends Component {
         <Route exact path="/board" component={board} />
         <Route exact path="/board2" component={board2} />
         <Route path="/edit" component={Edit} />
+        <Route path="/edit2" component={Edit2} />
         <Route path="/More" component={More} />
         <Route exact path="/Create" component={Create} />
       </div>

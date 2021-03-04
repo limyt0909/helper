@@ -59,7 +59,7 @@ db.run(query, (err) => {
   console.log('Successful query');
 });
 
-//JSON형태로 books에 쏘기 Board 게시판에서 사용
+//JSON형태로 books에 쏘기 Board1 게시판에서 사용
 app.get('/books', (req, res) => {
   const sql = 'SELECT * FROM Books';
   db.all(sql, [], (err, rows) => {
@@ -75,9 +75,7 @@ app.get('/books', (req, res) => {
   });
 });
 
-
-
-//JSON형태로 More 보기
+//JSON형태로 More 보기 board2게시판에서 이용중
 app.get('/more', (req, res) => {
   const sql =
     'SELECT title, author, comments FROM Books where idx = ' + req.query.idx;
@@ -93,8 +91,6 @@ app.get('/more', (req, res) => {
     res.send(data);
   });
 });
-
-
 
 //EDIT 작업중
 app.get('/edit', (req, res) => {
@@ -113,33 +109,64 @@ app.get('/edit', (req, res) => {
     res.send(data);
   });
 });
-app.post('/edit' ,(req,res)=>{
+
+app.post('/edit', (req, res) => {
   const data = req.body;
+  console.log(data);
   const idx = data.idx;
   const title = data.Title;
   const author = data.Author;
-  const comments = data.Comments
-  const query = `UPDATE books SET Title="${title}", Author="${author}", Comments="${comments}" WHERE (idx="${idx}");`
-  console.log(query)
-  db.run(query, (err, rows) => {
+  const comments = data.Comments;
+  const query = `UPDATE books SET Title='${title}', Author='${author}', Comments='${comments}' WHERE (idx="${idx}");`;
+  console.log(query);
+  db.all(query, (err, rows) => {
     if (err) {
       res.send(err);
 
       return console.error(err.message);
     }
+
     // res.render("books", { model: rows });
-    res.send('OK');
+    //res.send('OK');
   });
-})
+});
+
+//Create 생성 명령어
+app.post('/create', (req, res) => {
+  const data = req.body;
+  const Title = data.Title;
+  const Author = data.Author;
+  const Comments = data.Comments;
+  const query = `INSERT INTO Books (Title, Author, Comments, DateTime)
+  VALUES ('${Title}', '${Author}', '${Comments}', date('now'));`;
+  db.all(query, (err, rows) => {
+    if (err) {
+      res.send(err);
+      return console.error(err.message);
+    }
+  });
+});
+
+//POST //delete
+app.post('/delete', (req, res) => {
+  const id = req.params.id;
+  const sql = 'DELETE FROM Books where idx={?}';
+  db.run(sql, id, (err) => {
+    if (err) {
+      console.error(err.message);
+    }
+    res.redirect('/books');
+  });
+});
 
 /*
 // GET /create
 app.get('/create', (req, res) => {
-  const book = {
+  const books = {
     Author: ' ',
   };
-  res.render('create', { model: book });
-}); 
+  res.render('create', { model: books });
+});
 
 // POST /create
 app.post('/create', (req, res) => {
@@ -152,3 +179,6 @@ app.post('/create', (req, res) => {
   });
 });
 */
+//UPDATE 쿼리
+//생성쿼리INSERT INTO Books (Title, Author, Comments, DateTime) VALUES("?","?","?", "date('now')");
+//삭제쿼리DELETE FROM Books where idx={?};

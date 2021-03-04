@@ -79,17 +79,8 @@ const Board = () => {
                     <th>작성일</th>
                     <th class="d-print-none">
                       <a class="btn btn-sm btn-success" href="/create">
-                        Add
+                        Create
                       </a>{' '}
-                      <a class="btn btn-sm btn-warning" href="/edit">
-                        Edit
-                      </a>
-                      <a class="btn btn-sm" href="/more">
-                        More
-                      </a>
-                      <a class="btn btn-sm btn-danger" href="/delete">
-                        Delete
-                      </a>
                     </th>
                   </tr>
                 </thead>

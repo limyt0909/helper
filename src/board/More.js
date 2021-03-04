@@ -43,6 +43,7 @@ const More = () => {
     });
   }, []);
 
+  /*
   const update = () => {
     const Title = document.getElementById('Title');
     // let TitleModify = Title.value;
@@ -57,6 +58,7 @@ const More = () => {
     };
     axios.post('http://localhost:3001/edit', (data = updateData));
   };
+*/
 
   return (
     <>

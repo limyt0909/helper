@@ -47,4 +47,5 @@ export { default as board } from '../board/board';
 export { default as board2 } from '../board/board2';
 export { default as Create } from '../board/Create';
 export { default as Edit } from '../board/Edit';
+export { default as Edit2 } from '../board/Edit2';
 export { default as More } from '../board/More';

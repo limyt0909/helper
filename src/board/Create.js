@@ -20,6 +20,8 @@ const Create = () => {
   const [comments, setComments] = useState('');
   const currLocation = window.location.href.split('/');
   const slug = currLocation[currLocation.length - 1];
+  const [idx, setidx] = useState('');
+
   const handleOnChange = (event) => {
     const { className, value } = event.target;
     if (className === 'Title') {
@@ -32,15 +34,18 @@ const Create = () => {
       setComments(value);
     }
   };
+  console.log(handleOnChange);
 
-  const getBooks = () => {
-    axios.get(`http://localhost:3001/create?idx=${slug}`).then((res) => {
+  const handleUpdate = () => {
+    let updateData = {
+      Title: title,
+      Author: author,
+      Comments: comments,
+    };
+    axios.post(`http://localhost:3001/create`, updateData).then((res) => {
       console.log(res.data);
     });
   };
-  useEffect(() => {
-    getBooks();
-  });
 
   return (
     <>
@@ -48,8 +53,7 @@ const Create = () => {
       <div className={styles.title}> 게시글 쓰기 </div>
       <div class="container">
         <h1>Create</h1>
-
-        <form action="/create" method="post">
+        <form action={handleUpdate} method="post">
           <div class="form-horizontal">
             <div class="form-group row">
               <label class="col-form-label col-sm-2" for="Title">
@@ -73,11 +77,12 @@ const Create = () => {
               <label class="col-form-label col-sm-2" for="Comments">
                 Comments
               </label>
+
               <div class="col-sm-10">
                 <textarea
                   class="form-control"
                   cols="20"
-                  name="Comments"
+                  classname="Comments"
                   maxlength="32000"
                   rows="7"
                 ></textarea>
